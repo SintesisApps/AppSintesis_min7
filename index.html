@@ -247,48 +247,19 @@
 			function slideVertical()
 			{
 				
+				$('#cont_slideprincipal').html('<img src="imagenes/loading.gif" />');
+				
+				
 				$.ajax({
-					
-					url: "http://166.78.193.53/APPSintesis/php/slide_vertical.php",
-					async:true,
-					beforeSend: function(objeto){
-						alert("Adiós, me voy a ejecutar");
-					},
-					complete: function(datos, exito){
-						alert("Me acabo de completar")
-						if(exito=="success"){
-							$('#content_slideVertical').html(datos);
-						}
-						else
-						{
-							alert("pensando")
-						}
-					},
-					contentType: "application/x-www-form-urlencoded",
-					dataType: "html",
-					error: function(objeto, quepaso, otroobj){
-						alert("Estas viendo esto por que fallé");
-						alert("Pasó lo siguiente: "+quepaso);
-					},
-					global: true,
-					ifModified: false,
-					processData:true,
-					success: function(datos){
-						alert(datos);
-					},
-					timeout: 3000,
 					type: "POST",
-					
-					
-					
-				
+				url: "http://166.78.193.53/APPSintesis/php/slide_vertical.php",
 				data: "",
-				
-				
-				
-				
-				
-				
+				cache: false,
+				success: function(message)
+				{	
+				$('#cont_slideprincipal').fadeIn(1000).html(message);
+				<!--$('#content_slideVertical').html(message);-->
+				}
 				});
 			}
 			
@@ -371,36 +342,36 @@
 		}
 		
 		function CargarNoticiasHome()
-		{
-		//alert("mmbn");
-			
-			//$("#vertical_seccion").hide();
-			slideVertical2();
-			slidePrincipal();
-			slideMiniatura();
-			galeriaImagenes();
-			galeria_video();	
-			minuto_minuto();
-			function slideVertical2()
-				{//ContenedorDivMedio
+	{
+	//alert("mmbn");
+		
+		//$("#vertical_seccion").hide();
+		slideVertical2();
+		slidePrincipal();
+		slideMiniatura();
+		galeriaImagenes();
+		galeria_video();	
+		minuto_minuto();
+		function slideVertical2()
+			{//ContenedorDivMedio
+				
+				$.ajax({
+				type: "POST",
+				url: "http://166.78.193.53/APPSintesis/php/slide_vertical.php",
+				data: "",
+				cache: false,
+				success: function(message)
+				{
+					$('.DivVertical').html(
+					' <div  class="ContenedorSlideVertical" id="content_slideVertical" >'+message+'</div>'
 					
-					$.ajax({
-					type: "POST",
-					url: "http://166.78.193.53/APPSintesis/php/slide_vertical.php",
-					data: "",
-					cache: false,
-					success: function(message)
-					{
-						$('.DivVertical').html(
-						' <div  class="ContenedorSlideVertical" id="content_slideVertical" >'+message+'</div>'
-						
-						)
-					}
-					});
+					)
 				}
-			
-			
-		} 
+				});
+			}
+		
+		
+	} 
 	
 	function CargarNoticiasPlaza(plaza)
 	{
