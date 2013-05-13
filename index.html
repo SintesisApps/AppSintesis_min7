@@ -254,10 +254,14 @@
 					beforeSend: function(objeto){
 						alert("Adiós, me voy a ejecutar");
 					},
-					complete: function(objeto, exito){
+					complete: function(datos, exito){
 						alert("Me acabo de completar")
 						if(exito=="success"){
-							$('#content_slideVertical').html(message);
+							$('#content_slideVertical').html(datos);
+						}
+						else
+						{
+							alert("pensando")
 						}
 					},
 					contentType: "application/x-www-form-urlencoded",
