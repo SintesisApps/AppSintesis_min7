@@ -247,7 +247,7 @@
 			function slideVertical()
 			{
 				
-				$('#cont_slideprincipal').html('<img src="imagenes/loading.gif" />');
+				$('#content_slideVertical').html('<img src="imagenes/loading.gif" />');
 				
 				
 				$.ajax({
@@ -257,7 +257,7 @@
 				cache: false,
 				success: function(message)
 				{	
-				$('#cont_slideprincipal').fadeIn(1000).html(message);
+				$('#content_slideVertical').fadeIn(1000).html(message);
 				<!--$('#content_slideVertical').html(message);-->
 				}
 				});
