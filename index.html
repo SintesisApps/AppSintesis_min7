@@ -199,7 +199,7 @@
 				
             });
 			
-						function CargarNoticiasHomeGal()
+			function CargarNoticiasHomeGal()
 			{
 				$.ajax({
 						type: "POST",
@@ -226,7 +226,7 @@
 				cache: false,
 				success: function(message)
 				{	
-				$('#cont_slideprincipal').fadeIn(1000).html(message);
+				setInterval($('#cont_slideprincipal').html(message),5000);
 <!--				$('#cont_slideprincipal').html(message);-->	
 			}
 				});
@@ -260,7 +260,7 @@
 				cache: false,
 				success: function(message)
 				{	
-				$('#content_slideVertical').fadeIn(1000).html(message);
+					setInterval($('#content_slideVertical').html(message),5000);
 				<!--$('#content_slideVertical').html(message);-->
 				}
 				});
@@ -344,7 +344,7 @@
 		var ref = window.open('https://www.facebook.com/SintesisPuebla?fref=ts', '_blank', 'location=yes');
 		}
 		
-		function CargarNoticiasHome()
+	function CargarNoticiasHome()
 	{
 	//alert("mmbn");
 		
@@ -357,7 +357,7 @@
 		minuto_minuto();
 		function slideVertical2()
 			{//ContenedorDivMedio
-				
+				$('.DivVertical').html('<img src="imagenes/loading.gif" />');
 				$.ajax({
 				type: "POST",
 				url: "http://166.78.193.53/APPSintesis/php/slide_vertical.php",
@@ -377,7 +377,10 @@
 	} 
 	
 	function CargarNoticiasPlaza(plaza)
-	{
+	{			
+			$('.ContenedorPrincipalSeccion').html('<img src="imagenes/loading.gif" />');
+			$('.DivVertical').html('<img src="imagenes/loading.gif" />');
+
 			$.ajax(
 			{
 
@@ -426,6 +429,9 @@
 	} 
 	function cargar_seccion(seccion)
 	{
+			$('.ContenedorPrincipalSeccion').html('<img src="imagenes/loading.gif" />');
+			$('.DivVertical').html('<img src="imagenes/loading.gif" />');
+
 		 $.ajax(
 			{
 
@@ -575,6 +581,8 @@
 
 function LeerNota(id)
 	{
+			$('.ExtrasPlaza').html('<img src="imagenes/loading.gif" />');
+
 		//$('.NotaTitulo').html("Nose titulo extra");
 			$.ajax(
 			{
