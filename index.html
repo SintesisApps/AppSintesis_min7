@@ -403,14 +403,12 @@
 					//color
 					//$("#name_SeccionSeccion").css({'background':'#5abfcf'});
 						
-						
-						$(".ContenedorPrincipalSeccion").html(
-							datos[i].slide_principal
-						);
-						
-						$(".DivVertical").html(
-						datos[i].slide_vertical
-						);
+					setInterval($(".ContenedorPrincipalSeccion").html(datos[i].slide_principal).html(message),5000);
+					setInterval($(".DivVertical").html(datos[i].slide_vertical).html(message),5000);
+
+<!--						$(".ContenedorPrincipalSeccion").html(datos[i].slide_principal);-->	
+					
+<!--						$(".DivVertical").html(datos[i].slide_vertical);-->	
 						
 						$("#minuto_plaza").html(
 						datos[i].ultimas_noticias
@@ -456,17 +454,14 @@
 					$("#name_SeccionSeccion").addClass('SeccionSeccion');
 						
 						
+					setInterval($(".ContenedorPrincipalSeccion").html(datos[i].slide_principal).html(message),5000);
+					setInterval($(".DivVertical").html(datos[i].slide_vertical).html(message),5000);
 						
 						
+/*						$(".ContenedorPrincipalSeccion").html(datos[i].slide_principal);
 						
-						$(".ContenedorPrincipalSeccion").html(
-							datos[i].slide_principal
-						);
-						
-						$(".DivVertical").html(
-						datos[i].slide_vertical
-						);	
-						
+						$(".DivVertical").html(datos[i].slide_vertical);	
+*/						
 						$("#minuto_plaza").html(
 						datos[i].ultimas_noticias
 						);
@@ -640,10 +635,11 @@ function LeerNota(id)
 					datos[i].nota
 					);
 					
-					$('.ExtrasPlaza').html(
-					datos[i].nota_extra
-					);
+					setInterval($('.ExtrasPlaza').html(datos[i].nota_extra).html(datos[i].slide_principal).html(message),5000);
+
 					
+<!--					$('.ExtrasPlaza').html(datos[i].nota_extra);-->	
+				
 					
 					}
 				
